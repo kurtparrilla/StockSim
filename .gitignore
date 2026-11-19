@@ -3,5 +3,4 @@
 /out/
 *.class
 
-/nbproject/private/
-
+nbproject/private/
