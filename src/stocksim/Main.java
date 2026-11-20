@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package stocksim;
-
+import java.sql.Connection;
+import java.sql.SQLException;
 /**
  *
  * @author nyx
@@ -14,7 +15,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("This is my main");
+
     }
     
 }
