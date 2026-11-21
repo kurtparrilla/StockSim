@@ -4,7 +4,6 @@
  */
 package service;
 import Database.DatabaseConnection;
-import org.mindrot.jbcrypt.BCrypt;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
