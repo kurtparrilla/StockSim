@@ -3,11 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package service;
-import Database.DatabaseConnection;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.ResultSet;
+import stocksim.model.User;
 /**
  *
  * @author nyx
@@ -20,34 +17,22 @@ public class AuthService {
         if(password == null || password.trim().isEmpty() || password.length() < 8){
             throw new IllegalArgumentException("Invalid password or less than 8 characters");
         }
-        String passwordHash = PasswordHash.hashPassword(password);
-        try(Connection conn = DatabaseConnection.getConnection()){
-            try(PreparedStatement ptst = conn.prepareStatement("INSERT INTO Users (username, password_hash) VALUES (?,?)")){
-                ptst.setString(1, username);
-                ptst.setString(2, passwordHash);
-                ptst.executeUpdate();
-            }
-        }
+        UserRepository ur = new UserRepository();
+        ur.createUser(username, PasswordHash.hashPassword(password));
     }
-  
-    public boolean login(String username, String password) throws SQLException{
+ 
+    public User login(String username, String password) throws SQLException{
         if(username == null || username.trim().isEmpty()){
-            throw new IllegalArgumentException("Invalid username");
+            return null;
         }
         if(password == null || password.trim().isEmpty()){
-            throw new IllegalArgumentException("Invalid password");
+            return null;
         }
-        try(Connection conn = DatabaseConnection.getConnection()){
-            try(PreparedStatement pstp = conn.prepareStatement("SELECT password_hash FROM Users WHERE username = ?")){
-                pstp.setString(1, username);
-                try(ResultSet rs = pstp.executeQuery()){
-                    if(!rs.next()){
-                        return false;
-                    }
-                    String storedHash = rs.getString("password_hash");
-                    return PasswordHash.verifyPassword(password, storedHash);
-                }
-            }
+        UserRepository ur = new UserRepository();
+        User user = ur.findByUsername(username);
+        if(user == null || !PasswordHash.verifyPassword(password, user.getPasswordHash())){
+            return null;
         }
+        return user;
     }
 }
