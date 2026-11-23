@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package stocksim.ui;
-
+import stocksim.model.User;
 /**
  *
  * @author WINDOWS 11
@@ -15,8 +15,9 @@ public class DashboardFrame extends javax.swing.JFrame {
     /**
      * Creates new form DashboardFrame
      */
-    public DashboardFrame() {
+    public DashboardFrame(User user) {
         initComponents();
+        username.setText(user.getUsername());
     }
 
     /**
@@ -27,22 +28,27 @@ public class DashboardFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         backgroundPanel = new javax.swing.JPanel();
         sideNav = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jToggleButton6 = new javax.swing.JToggleButton();
+        jToggleButton7 = new javax.swing.JToggleButton();
+        jToggleButton8 = new javax.swing.JToggleButton();
+        jToggleButton9 = new javax.swing.JToggleButton();
+        jToggleButton10 = new javax.swing.JToggleButton();
         pageCards = new javax.swing.JPanel();
         dashboardPanel = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         panelTitle = new javax.swing.JLabel();
         panellastupdate = new javax.swing.JLabel();
         databaseStatusLabel = new javax.swing.JLabel();
-        databaseStatusLabel1 = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -60,18 +66,49 @@ public class DashboardFrame extends javax.swing.JFrame {
         descriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
         descriptionLabel.setText("VIRTUAL STOCK EXCHANGE");
 
-        jToggleButton1.setFont(new java.awt.Font("Inter", 1, 12)); // NOI18N
-        jToggleButton1.setText("01 Dashboard");
-        jToggleButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton1.addActionListener(this::jToggleButton1ActionPerformed);
-
-        jToggleButton2.setFont(new java.awt.Font("Inter", 1, 12)); // NOI18N
-        jToggleButton2.setText("02 Stock Market");
-        jToggleButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton2.setPreferredSize(new java.awt.Dimension(116, 26));
-
         jLabel2.setFont(new java.awt.Font("Inter 24pt SemiBold", 0, 10)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("WORKSPACE");
+
+        jToggleButton3.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton3.setText("01 Dashboard");
+        jToggleButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton4.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton4.setText("02 Stock Market");
+        jToggleButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton5.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton5.setText("03 Order Book");
+        jToggleButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton6.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton6.setText("04 Place Order");
+        jToggleButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton7.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton7.setText("05 My Portfolio");
+        jToggleButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton8.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton8.setText("06 My Orders");
+        jToggleButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton9.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton9.setText("07 Trade History");
+        jToggleButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jToggleButton10.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        jToggleButton10.setText("08 Market Simulation");
+        jToggleButton10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jToggleButton10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout sideNavLayout = new javax.swing.GroupLayout(sideNav);
         sideNav.setLayout(sideNavLayout);
@@ -83,9 +120,15 @@ public class DashboardFrame extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(descriptionLabel)
                     .addComponent(titleLabel)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jToggleButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         sideNavLayout.setVerticalGroup(
             sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,11 +139,23 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(descriptionLabel)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addComponent(jToggleButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton10)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         pageCards.setBackground(new java.awt.Color(16, 24, 39));
@@ -122,9 +177,9 @@ public class DashboardFrame extends javax.swing.JFrame {
         databaseStatusLabel.setForeground(new java.awt.Color(102, 255, 102));
         databaseStatusLabel.setText("● Database connected");
 
-        databaseStatusLabel1.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        databaseStatusLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        databaseStatusLabel1.setText("Username / Investor");
+        username.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setText("Username");
 
         jPanel1.setBackground(new java.awt.Color(29, 49, 80));
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -143,13 +198,13 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panellastupdate)
                     .addComponent(panelTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 347, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(databaseStatusLabel)
                 .addGap(18, 18, 18)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(databaseStatusLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +218,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                     .addGroup(headerLayout.createSequentialGroup()
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(databaseStatusLabel)
-                            .addComponent(databaseStatusLabel1))
+                            .addComponent(username))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -214,51 +269,31 @@ public class DashboardFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DashboardFrame().setVisible(true));
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JPanel dashboardPanel;
     private javax.swing.JLabel databaseStatusLabel;
-    private javax.swing.JLabel databaseStatusLabel1;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton10;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JToggleButton jToggleButton6;
+    private javax.swing.JToggleButton jToggleButton7;
+    private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JPanel pageCards;
     private javax.swing.JLabel panelTitle;
     private javax.swing.JLabel panellastupdate;
     private javax.swing.JPanel sideNav;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
