@@ -3,20 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package stocksim.ui;
+import java.math.BigDecimal;
 import stocksim.model.User;
+import javax.swing.Painter;
+import javax.swing.JToggleButton;
+import javax.swing.UIDefaults;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+
 /**
  *
  * @author WINDOWS 11
  */
 public class DashboardFrame extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardFrame.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging
+            .Logger.getLogger(DashboardFrame.class.getName());
 
     /**
      * Creates new form DashboardFrame
      */
     public DashboardFrame(User user) {
         initComponents();
+        navColors();
+        configureTableHeader();
+        jLabel4.setText("Welcome back, " + user.getUsername() + ". Here is your virtual account at a glance.");
+        //cashLabel.setText(user.getAvailableCash() != null ? user.getAvailableCash().toString() : "0.00");
         username.setText(user.getUsername());
     }
 
@@ -29,28 +42,71 @@ public class DashboardFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel8 = new javax.swing.JLabel();
         backgroundPanel = new javax.swing.JPanel();
         sideNav = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
+        dashboardBTN = new javax.swing.JToggleButton();
+        stockMarketBTN = new javax.swing.JToggleButton();
+        orderbookBTN = new javax.swing.JToggleButton();
+        placeorderBTN = new javax.swing.JToggleButton();
+        myportfolioBTN = new javax.swing.JToggleButton();
+        myorderBTN = new javax.swing.JToggleButton();
+        tradehistoryBTN = new javax.swing.JToggleButton();
+        marketsimBTN = new javax.swing.JToggleButton();
+        logoutBTN = new javax.swing.JButton();
         pageCards = new javax.swing.JPanel();
         dashboardPanel = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
-        panelTitle = new javax.swing.JLabel();
-        panellastupdate = new javax.swing.JLabel();
+        pageTitle = new javax.swing.JLabel();
+        updatetime = new javax.swing.JLabel();
         databaseStatusLabel = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        statsPanel = new javax.swing.JPanel();
+        availableCashCard = new stocksim.ui.RoundedPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        reservedCashCard = new stocksim.ui.RoundedPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        portfolioValueCard = new stocksim.ui.RoundedPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        unrealizedProfitCard = new stocksim.ui.RoundedPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        activeOrdersCard = new stocksim.ui.RoundedPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        roundedPanel1 = new stocksim.ui.RoundedPanel();
+        stockMarketPanelheader = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel22 = new javax.swing.JLabel();
+        roundedPanel2 = new stocksim.ui.RoundedPanel();
+        jLabel24 = new javax.swing.JLabel();
+        roundedPanel3 = new stocksim.ui.RoundedPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,93 +126,137 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("WORKSPACE");
 
-        jToggleButton3.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton3.setText("01 Dashboard");
-        jToggleButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        dashboardBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(dashboardBTN);
+        dashboardBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        dashboardBTN.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardBTN.setSelected(true);
+        dashboardBTN.setText("01 Dashboard");
+        dashboardBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dashboardBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton4.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton4.setText("02 Stock Market");
-        jToggleButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        stockMarketBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(stockMarketBTN);
+        stockMarketBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        stockMarketBTN.setForeground(new java.awt.Color(255, 255, 255));
+        stockMarketBTN.setText("02 Stock Market");
+        stockMarketBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        stockMarketBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton5.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton5.setText("03 Order Book");
-        jToggleButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        orderbookBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(orderbookBTN);
+        orderbookBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        orderbookBTN.setForeground(new java.awt.Color(255, 255, 255));
+        orderbookBTN.setText("03 Order Book");
+        orderbookBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        orderbookBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton6.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton6.setText("04 Place Order");
-        jToggleButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        placeorderBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(placeorderBTN);
+        placeorderBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        placeorderBTN.setForeground(new java.awt.Color(255, 255, 255));
+        placeorderBTN.setText("04 Place Order");
+        placeorderBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        placeorderBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton7.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton7.setText("05 My Portfolio");
-        jToggleButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        myportfolioBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(myportfolioBTN);
+        myportfolioBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        myportfolioBTN.setForeground(new java.awt.Color(255, 255, 255));
+        myportfolioBTN.setText("05 My Portfolio");
+        myportfolioBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        myportfolioBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton8.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton8.setText("06 My Orders");
-        jToggleButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        myorderBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(myorderBTN);
+        myorderBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        myorderBTN.setForeground(new java.awt.Color(255, 255, 255));
+        myorderBTN.setText("06 My Orders");
+        myorderBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        myorderBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton9.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton9.setText("07 Trade History");
-        jToggleButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        tradehistoryBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(tradehistoryBTN);
+        tradehistoryBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        tradehistoryBTN.setForeground(new java.awt.Color(255, 255, 255));
+        tradehistoryBTN.setText("07 Trade History");
+        tradehistoryBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        tradehistoryBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jToggleButton10.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
-        jToggleButton10.setText("08 Market Simulation");
-        jToggleButton10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jToggleButton10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        marketsimBTN.setBackground(new java.awt.Color(19, 30, 47));
+        buttonGroup1.add(marketsimBTN);
+        marketsimBTN.setFont(new java.awt.Font("Inter 24pt Medium", 1, 12)); // NOI18N
+        marketsimBTN.setForeground(new java.awt.Color(255, 255, 255));
+        marketsimBTN.setText("08 Market Simulation");
+        marketsimBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        marketsimBTN.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        logoutBTN.setBackground(new java.awt.Color(19, 30, 47));
+        logoutBTN.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        logoutBTN.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBTN.setText("Logout");
+        logoutBTN.setBorderPainted(false);
+        logoutBTN.setContentAreaFilled(false);
+        logoutBTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutBTN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logoutBTN.addActionListener(this::logoutBTNActionPerformed);
 
         javax.swing.GroupLayout sideNavLayout = new javax.swing.GroupLayout(sideNav);
         sideNav.setLayout(sideNavLayout);
         sideNavLayout.setHorizontalGroup(
             sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideNavLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(descriptionLabel)
-                    .addComponent(titleLabel)
-                    .addComponent(jToggleButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dashboardBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(stockMarketBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(orderbookBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(placeorderBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myportfolioBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myorderBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tradehistoryBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(marketsimBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addGroup(sideNavLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(descriptionLabel)
+                            .addComponent(titleLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         sideNavLayout.setVerticalGroup(
             sideNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideNavLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(22, 22, 22)
                 .addComponent(titleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descriptionLabel)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton3)
+                .addComponent(dashboardBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(stockMarketBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton4)
+                .addComponent(orderbookBTN)
+                .addGap(12, 12, 12)
+                .addComponent(placeorderBTN)
+                .addGap(12, 12, 12)
+                .addComponent(myportfolioBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton5)
+                .addComponent(myorderBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton6)
+                .addComponent(tradehistoryBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton10)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addComponent(marketsimBTN)
+                .addGap(18, 18, 18)
+                .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
         );
+
+        sideNavLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dashboardBTN, marketsimBTN, myorderBTN, myportfolioBTN, orderbookBTN, placeorderBTN, stockMarketBTN, tradehistoryBTN});
 
         pageCards.setBackground(new java.awt.Color(16, 24, 39));
         pageCards.setLayout(new java.awt.CardLayout());
@@ -165,13 +265,13 @@ public class DashboardFrame extends javax.swing.JFrame {
 
         header.setBackground(new java.awt.Color(16, 24, 39));
 
-        panelTitle.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
-        panelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        panelTitle.setText("Dashboard");
+        pageTitle.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
+        pageTitle.setForeground(new java.awt.Color(255, 255, 255));
+        pageTitle.setText("Dashboard");
 
-        panellastupdate.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        panellastupdate.setForeground(new java.awt.Color(255, 255, 255));
-        panellastupdate.setText("Last update: Nov 20, 2026 · 16:00 ET");
+        updatetime.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        updatetime.setForeground(new java.awt.Color(255, 255, 255));
+        updatetime.setText("Last update: Nov 20, 2026 · 16:00 ET");
 
         databaseStatusLabel.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         databaseStatusLabel.setForeground(new java.awt.Color(102, 255, 102));
@@ -194,17 +294,17 @@ public class DashboardFrame extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(33, 33, 33)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panellastupdate)
-                    .addComponent(panelTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                    .addComponent(pageTitle)
+                    .addComponent(updatetime))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(databaseStatusLabel)
                 .addGap(18, 18, 18)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                .addGap(24, 24, 24))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,9 +312,9 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(headerLayout.createSequentialGroup()
-                        .addComponent(panelTitle)
+                        .addComponent(pageTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panellastupdate))
+                        .addComponent(updatetime))
                     .addGroup(headerLayout.createSequentialGroup()
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(databaseStatusLabel)
@@ -224,18 +324,433 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(16, 24, 39));
+
+        jLabel3.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Your trading workspace");
+
+        jLabel4.setFont(new java.awt.Font("Inter 24pt", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel4.setText("Welcome back, Alex. Here is your virtual account at a glance.");
+
+        statsPanel.setBackground(new java.awt.Color(16, 24, 39));
+        statsPanel.setLayout(new java.awt.GridLayout(1, 5, 12, 0));
+
+        availableCashCard.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel9.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel9.setText("Available Cash");
+
+        jLabel10.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel10.setText("Ready to trade");
+
+        jLabel11.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("$3,734.00");
+
+        javax.swing.GroupLayout availableCashCardLayout = new javax.swing.GroupLayout(availableCashCard);
+        availableCashCard.setLayout(availableCashCardLayout);
+        availableCashCardLayout.setHorizontalGroup(
+            availableCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(availableCashCardLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(availableCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        availableCashCardLayout.setVerticalGroup(
+            availableCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableCashCardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addGap(12, 12, 12))
+        );
+
+        statsPanel.add(availableCashCard);
+
+        reservedCashCard.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel5.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel5.setText("Reserved Cash");
+
+        jLabel6.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel6.setText("Held for buy orders");
+
+        jLabel7.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("$3,734.00");
+
+        javax.swing.GroupLayout reservedCashCardLayout = new javax.swing.GroupLayout(reservedCashCard);
+        reservedCashCard.setLayout(reservedCashCardLayout);
+        reservedCashCardLayout.setHorizontalGroup(
+            reservedCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reservedCashCardLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(reservedCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        reservedCashCardLayout.setVerticalGroup(
+            reservedCashCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservedCashCardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12))
+        );
+
+        statsPanel.add(reservedCashCard);
+
+        portfolioValueCard.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel12.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel12.setText("Total Portfolio Value");
+
+        jLabel13.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel13.setText("Cash + stock value");
+
+        jLabel14.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("$3,734.00");
+
+        javax.swing.GroupLayout portfolioValueCardLayout = new javax.swing.GroupLayout(portfolioValueCard);
+        portfolioValueCard.setLayout(portfolioValueCardLayout);
+        portfolioValueCardLayout.setHorizontalGroup(
+            portfolioValueCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(portfolioValueCardLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(portfolioValueCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        portfolioValueCardLayout.setVerticalGroup(
+            portfolioValueCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, portfolioValueCardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13)
+                .addGap(12, 12, 12))
+        );
+
+        statsPanel.add(portfolioValueCard);
+
+        unrealizedProfitCard.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel15.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel15.setText("Unrealized P/L");
+
+        jLabel16.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel16.setText("+1.80% on holdings");
+
+        jLabel17.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("$3,734.00");
+
+        javax.swing.GroupLayout unrealizedProfitCardLayout = new javax.swing.GroupLayout(unrealizedProfitCard);
+        unrealizedProfitCard.setLayout(unrealizedProfitCardLayout);
+        unrealizedProfitCardLayout.setHorizontalGroup(
+            unrealizedProfitCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(unrealizedProfitCardLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(unrealizedProfitCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        unrealizedProfitCardLayout.setVerticalGroup(
+            unrealizedProfitCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, unrealizedProfitCardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16)
+                .addGap(12, 12, 12))
+        );
+
+        statsPanel.add(unrealizedProfitCard);
+
+        activeOrdersCard.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel18.setFont(new java.awt.Font("Inter 24pt Medium", 0, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel18.setText("Active Orders");
+
+        jLabel19.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel19.setText("2 buy · 1 sell");
+
+        jLabel20.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("$3,734.00");
+
+        javax.swing.GroupLayout activeOrdersCardLayout = new javax.swing.GroupLayout(activeOrdersCard);
+        activeOrdersCard.setLayout(activeOrdersCardLayout);
+        activeOrdersCardLayout.setHorizontalGroup(
+            activeOrdersCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(activeOrdersCardLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(activeOrdersCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        activeOrdersCardLayout.setVerticalGroup(
+            activeOrdersCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activeOrdersCardLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel19)
+                .addGap(12, 12, 12))
+        );
+
+        statsPanel.add(activeOrdersCard);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(statsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(statsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        roundedPanel1.setBackground(new java.awt.Color(27, 38, 56));
+        roundedPanel1.setPreferredSize(new java.awt.Dimension(656, 226));
+
+        stockMarketPanelheader.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 18)); // NOI18N
+        stockMarketPanelheader.setForeground(new java.awt.Color(255, 255, 255));
+        stockMarketPanelheader.setText("Stock market overview");
+
+        jLabel21.setFont(new java.awt.Font("Inter 18pt", 0, 10)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(147, 197, 253));
+        jLabel21.setText("View market >>");
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jTable1.setBackground(new java.awt.Color(27, 38, 56));
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Symbol", "Company", "Reference price", "Price date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setSelectionBackground(new java.awt.Color(32, 59, 92));
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jLabel22.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(167, 181, 202));
+        jLabel22.setText("Historical reference prices • not simulated execution prices");
+
+        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
+        roundedPanel1.setLayout(roundedPanel1Layout);
+        roundedPanel1Layout.setHorizontalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(stockMarketPanelheader)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addGap(16, 16, 16))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        roundedPanel1Layout.setVerticalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stockMarketPanelheader)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22)
+                .addContainerGap())
+        );
+
+        roundedPanel2.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel24.setFont(new java.awt.Font("Inter 18pt", 0, 10)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(147, 197, 253));
+        jLabel24.setText("History >>");
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout roundedPanel2Layout = new javax.swing.GroupLayout(roundedPanel2);
+        roundedPanel2.setLayout(roundedPanel2Layout);
+        roundedPanel2Layout.setHorizontalGroup(
+            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        roundedPanel2Layout.setVerticalGroup(
+            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel24)
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+
+        roundedPanel3.setBackground(new java.awt.Color(27, 38, 56));
+
+        jLabel25.setFont(new java.awt.Font("Inter 18pt", 0, 10)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(147, 197, 253));
+        jLabel25.setText("Manage>>");
+        jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout roundedPanel3Layout = new javax.swing.GroupLayout(roundedPanel3);
+        roundedPanel3.setLayout(roundedPanel3Layout);
+        roundedPanel3Layout.setHorizontalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        roundedPanel3Layout.setVerticalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel25)
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+
+        jButton1.setBackground(new java.awt.Color(34, 197, 94));
+        jButton1.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Buy Stock");
+
+        jButton2.setBackground(new java.awt.Color(239, 68, 68));
+        jButton2.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 12)); // NOI18N
+        jButton2.setText("Sell Stock");
+
+        jButton3.setBackground(new java.awt.Color(27, 38, 56));
+        jButton3.setFont(new java.awt.Font("Inter 28pt SemiBold", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("View Portfolio");
+
+        jLabel23.setFont(new java.awt.Font("Inter 28pt", 0, 10)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("StockSim v1.0  /  LIMIT orders only");
+
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
         dashboardPanel.setLayout(dashboardPanelLayout);
         dashboardPanelLayout.setHorizontalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(roundedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)))
+                .addGap(15, 15, 15))
         );
+
+        dashboardPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardPanelLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 489, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(roundedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
+                        .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(roundedPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
+                .addContainerGap())
         );
+
+        dashboardPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
 
         pageCards.add(dashboardPanel, "card2");
 
@@ -269,31 +784,166 @@ public class DashboardFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutBTNActionPerformed
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        User user = new User(1, "testuser1", "dsadsad", new BigDecimal("10000"),
+                BigDecimal.ZERO);
+        java.awt.EventQueue.invokeLater(() -> new DashboardFrame(user)
+                .setVisible(true));
+    }
+    private void configureTableHeader() {
+        JLabel headerLabel = new JLabel();
+        headerLabel.setOpaque(true);
+        headerLabel.setBackground(new Color(27, 38, 56));
+        headerLabel.setForeground(new Color(167, 181, 202));
+        headerLabel.setFont(jTable1.getFont());
+        headerLabel.setBorder(
+            BorderFactory.createEmptyBorder(8, 12, 8, 12)
+        );
+
+        jTable1.getTableHeader().setDefaultRenderer(
+            (table, value, isSelected, hasFocus, row, column) -> {
+                headerLabel.setText(value == null ? "" : value.toString());
+                return headerLabel;
+            }
+        );
+        jTable1.setBackground(new Color(27,38,56));
+        jScrollPane1.getViewport().setBackground(new Color(27, 38, 56));
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
+    }
+
+    private void navColors(){
+        Painter<JToggleButton> backgroundPainter = (graphics, button, width,
+                height) -> {
+            graphics.setColor(button.isSelected() ? new Color(32, 61, 104) :
+                    new Color(19, 30, 47));
+            graphics.fillRoundRect(0, 0, width, height, 10, 10);
+        };
+        String[] states = {
+            "Enabled",
+            "Focused",
+            "MouseOver",
+            "Pressed",
+            "Selected",
+            "Focused+MouseOver",
+            "Focused+Pressed",
+            "Focused+Selected",
+            "MouseOver+Selected",
+            "Pressed+Selected",
+            "Focused+MouseOver+Selected",
+            "Focused+Pressed+Selected"
+        };
+        UIDefaults overrides = new UIDefaults();
+        for (String state : states) {
+            overrides.put(
+                "ToggleButton[" + state + "].backgroundPainter",
+                backgroundPainter
+            );
+        }
+        JToggleButton[] buttons = {
+            dashboardBTN,
+            stockMarketBTN,
+            orderbookBTN,
+            placeorderBTN,
+            myportfolioBTN,
+            myorderBTN,
+            tradehistoryBTN,
+            marketsimBTN
+        };
+        for (JToggleButton button : buttons) {
+            button.putClientProperty("Nimbus.Overrides", overrides);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private stocksim.ui.RoundedPanel activeOrdersCard;
+    private stocksim.ui.RoundedPanel availableCashCard;
     private javax.swing.JPanel backgroundPanel;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JToggleButton dashboardBTN;
     private javax.swing.JPanel dashboardPanel;
     private javax.swing.JLabel databaseStatusLabel;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton logoutBTN;
+    private javax.swing.JToggleButton marketsimBTN;
+    private javax.swing.JToggleButton myorderBTN;
+    private javax.swing.JToggleButton myportfolioBTN;
+    private javax.swing.JToggleButton orderbookBTN;
     private javax.swing.JPanel pageCards;
-    private javax.swing.JLabel panelTitle;
-    private javax.swing.JLabel panellastupdate;
+    private javax.swing.JLabel pageTitle;
+    private javax.swing.JToggleButton placeorderBTN;
+    private stocksim.ui.RoundedPanel portfolioValueCard;
+    private stocksim.ui.RoundedPanel reservedCashCard;
+    private stocksim.ui.RoundedPanel roundedPanel1;
+    private stocksim.ui.RoundedPanel roundedPanel2;
+    private stocksim.ui.RoundedPanel roundedPanel3;
     private javax.swing.JPanel sideNav;
+    private javax.swing.JPanel statsPanel;
+    private javax.swing.JToggleButton stockMarketBTN;
+    private javax.swing.JLabel stockMarketPanelheader;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JToggleButton tradehistoryBTN;
+    private stocksim.ui.RoundedPanel unrealizedProfitCard;
+    private javax.swing.JLabel updatetime;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
