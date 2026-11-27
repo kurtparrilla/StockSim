@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package stocksim.ui;
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import service.AuthService;
 import javax.swing.JOptionPane;
@@ -384,7 +385,7 @@ public class Login extends javax.swing.JFrame {
 
     private void createAccountBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountBTNActionPerformed
         // TODO add your handling code here:
-        java.awt.CardLayout cards = (java.awt.CardLayout) formCards.getLayout();
+        CardLayout cards = (java.awt.CardLayout)formCards.getLayout();
         cards.show(formCards, "register");
     }//GEN-LAST:event_createAccountBTNActionPerformed
 
